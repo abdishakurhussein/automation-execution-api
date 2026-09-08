@@ -1,0 +1,6 @@
+@AutomationExecution.API_HostAddress = http://localhost:5034
+
+GET {{AutomationExecution.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
