@@ -1,0 +1,14 @@
+**/.env
+**/.git
+**/.gitignore
+**/.vs
+**/.vscode
+**/*.user
+**/*.suo
+**/bin
+**/obj
+**/node_modules
+**/secrets.dev.yaml
+**/values.dev.yaml
+README.md
+LICENSE
