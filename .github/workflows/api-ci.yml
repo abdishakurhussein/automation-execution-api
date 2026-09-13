@@ -1,0 +1,40 @@
+name: API CI
+
+# Run CI when master changes or a pull request targets master.
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  build-and-test:
+    # Use a clean GitHub-hosted Linux machine.
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      # Download the repository onto the runner.
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      # Install the .NET 8 SDK.
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: 8.0.x
+
+      # Restore packages for both projects in the solution.
+      - name: Restore dependencies
+        run: dotnet restore AutomationExecution.API.sln
+
+      # Compile the solution without restoring packages again.
+      - name: Build solution
+        run: dotnet build AutomationExecution.API.sln --configuration Release --no-restore
+
+      # Run all tests using the compiled Release build.
+      - name: Run integration tests
+        run: dotnet test AutomationExecution.API.sln --configuration Release --no-build
