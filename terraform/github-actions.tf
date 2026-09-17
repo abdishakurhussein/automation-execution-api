@@ -13,8 +13,8 @@ resource "azurerm_federated_identity_credential" "github_master" {
   audience = ["api://AzureADTokenExchange"]
   issuer   = "https://token.actions.githubusercontent.com"
 
-  # Trust jobs from this repository's master branch.
-  subject = "repo:abdishakurhussein/automation-execution-api:ref:refs/heads/master"
+  # Match GitHub's exact subject, including owner/repository IDs and master.
+  subject = "repo:abdishakurhussein@248567315/automation-execution-api@1361872131:ref:refs/heads/master"
 }
 
 resource "azurerm_role_assignment" "github_acr_push" {
