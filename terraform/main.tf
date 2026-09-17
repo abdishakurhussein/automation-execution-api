@@ -82,6 +82,13 @@ resource "azurerm_container_app" "api" {
     }
   }
 
+  lifecycle {
+    # GitHub Actions will manage application image updates.
+    ignore_changes = [
+      template[0].container[0].image
+    ]
+  }
+
   depends_on = [
     azurerm_role_assignment.acr_pull
   ]
