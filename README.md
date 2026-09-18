@@ -322,58 +322,30 @@ Crop to the relevant panel. Do not include passwords, tokens, payment details, p
 
 
 
-<!--
-![Successful build, test and Azure deployment workflow](docs/screenshots/01-cicd-deployment-success.png)
--->
-
 ### 2. All nine tests passing
 
 
 
-<!--
-![Integration test summary showing nine passed tests](docs/screenshots/02-integration-tests-passing.png)
--->
-
 ### 3. Live HTTPS API response
 
 
-<!--
-![Live Azure API returning execution records over HTTPS](docs/screenshots/03-live-api-response.png)
--->
 
 ### 4. Azure resources
 
 
-<!--
-![Azure resource group containing the deployed application resources](docs/screenshots/04-azure-resource-group.png)
--->
 
 ### 5. Versioned container images
 
 
-<!--
-![Versioned API container images stored in Azure Container Registry](docs/screenshots/05-acr-image-tags.png)
--->
 
 ### 6. Pull-request deployment protection
 
-**TODO — save:** `docs/screenshots/06-pull-request-checks.png`
 
-**Capture:** a pull request's checks showing build-and-test successful and deploy skipped. This demonstrates the workflow's PR deployment condition, not necessarily a configured branch-protection rule.
-
-<!--
-![Pull request tests passing with deployment intentionally skipped](docs/screenshots/06-pull-request-checks.png)
--->
 
 ### 7. Local Swagger (optional)
 
-**TODO — save:** `docs/screenshots/07-local-swagger.png`
 
-**Capture:** start the Development launch profile and open `http://localhost:5034/swagger`. Show the five execution endpoints, optionally expanding a GET response. Label it as local development, not the Azure deployment.
 
-<!--
-![Local Development Swagger UI showing execution endpoints](docs/screenshots/07-local-swagger.png)
--->
 
 ## Costs and safe cleanup
 
