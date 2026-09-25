@@ -160,15 +160,23 @@ Supply `subscription_id` in an ignored `terraform.tfvars` file. Run `terraform a
 
 ![Local Development Swagger interface](docs/screenshots/07-local-swagger.png)
 
-## Limitations and costs
+## Scope and limitations
 
-- Records are held in a static list: they reset on restart and are not concurrency-safe.
-- The public API has **no application authentication**. Use synthetic data only. OIDC secures deployment, not API access.
-- No database, test worker, WPF integration or automatic rollback is implemented yet.
-- Azure resources can incur charges even when no workflow runs. Monitor spending and credit expiry; budget alerts do not stop charges.
-- Before cleanup, preserve evidence/state and prevent deployment runs. `terraform destroy` does **not** remove the manually created registry or resource group; review those separately.
-- Inspired by the CoderCo Azure brief. Front Door/Application Gateway and a custom domain are deferred to limit cost; not every original requirement is implemented.
+This portfolio project demonstrates automated testing and deployment
+of a .NET API using GitHub Actions, Docker, Terraform and Azure.
 
-## Next milestone
+- Records are stored in memory, reset when the application restarts,
+  and are not safe for concurrent updates.
+- The API has no application-level authentication. Use synthetic data
+  only. OIDC protects deployment access, not the public API.
+- The API manages execution records; it does not run automated tests.
+- Automatic deployment rollback is not implemented.
 
-Connect WPF to display API records, then add persistence, authentication and a separate worker for real Playwright execution.
+## Costs and cleanup
+
+Azure resources may incur charges independently of pipeline runs.
+Monitor spending and remaining credits.
+
+Before removing infrastructure, disable deployment workflows and
+follow the cleanup instructions. The manually created container
+registry and resource group require separate review.
